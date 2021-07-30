@@ -14,17 +14,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script> -->
 
     <!-- <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script> -->
 
     <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script> -->
-    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script> -->
 
-    <!-- google font Sansita Swashed and Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Sansita+Swashed&display=swap" rel="stylesheet">
+    <!-- google font Sansita Swashed and font1 -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
     <!-- css file -->
     <link href="main.css" rel="stylesheet">
@@ -35,11 +35,11 @@
     <title>Quick Math</title>
 </head>
 
-<body class="indexpage Roboto">
+<body class="bg-light font1">
 
-    <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand SanSwas shadow p-3" href="#">QM</a>
-        <h4 class="SanSwas d-sm-block d-md-none">Quick Math</h4>
+    <nav id="navbar" class="navbar navbar-expand-md text-light navbar-dark bg-dark">
+        <a class="navbar-brand font2 shadow p-3" href="#">QM</a>
+        <h4 class="font2 d-sm-block d-md-none">Quick Math</h4>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,10 +49,10 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="none">MCQ</a>
+                    <a class="nav-link" href="test.html">Test</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Levels</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Levels</a>
                     <div class="dropdown-menu animate slideIn" aria-labelledby="dropdownId">
                         <a class="dropdown-item" href="images.html#">level 1</a>
                         <a class="dropdown-item" href="images.html#">level 2</a>
@@ -62,7 +62,7 @@
                     </div>
                 </li>
             </ul>
-            <h4 class="mr-4 SanSwas d-none d-md-block">Quick Math</h4>
+            <h4 class="mr-4 font2 d-none d-md-block">Quick Math</h4>
             <div class="points"><span id="points" style="position: relative;top: 8px;">000</span></div>
         </div>
     </nav>
@@ -72,21 +72,89 @@
                 addition
                 <div id="num1">000</div>
                 <div id="num2">000</div>
-                <input type="text" name="inputans" id="inputans" style="text-align: center;">
+                <input type="text" name="inputans" id="inputans" style="text-align: center;width: 100%; max-width: 150px;">
                 <div id="answer"></div>
             </div>
         </div>
     </section>
     <section>
         <div class="container p-5">
-            <div class="question"></div>
+            <div class="container">
+                <a class="dropdown-toggle" href="#" id="dropdownId1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">addition</a>
+                <div class="dropdown-menu animate slideIn" aria-labelledby="dropdownId">
+                    <a class="dropdown-item" onclick="setopration(this)">addition</a>
+                    <a class="dropdown-item" onclick="setopration(this)">subtraction</a>
+                    <a class="dropdown-item" onclick="setopration(this)">multiplication</a>
+                    <a class="dropdown-item" onclick="setopration(this)">division</a>
+                    <a class="dropdown-item" onclick="setopration(this)">remainder</a>
+                    <a class="dropdown-item" onclick="setopration(this)">power</a>
+                </div>
+                <input type="range" name="tablelen" id="tabledifficulty" min=1 value="3" max=6><span id="difficultyname">average</span>
+                <!-- <button>click</button> -->
+            </div>
+            <div class="table1">
+                <table style="width:100%;font-size: 500;">
+                    <tr id="r">
+                        <td id="1">addition</td>
+                        <td id="2">0</td>
+                        <td id="3">0</td>
+                        <td id="4">0</td>
+                        <td id="5">0</td>
+                    </tr>
+                    <tr id="r">
+                        <td id="6">0</td>
+                        <td><input type="text" id="10" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="11" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="12" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="13" class="input-box" onfocus="getIdandCheck(this)"></td>
+                    </tr>
+                    <tr id="r">
+                        <td id="7">0</td>
+                        <td><input type="text" id="14" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="15" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="16" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="17" class="input-box" onfocus="getIdandCheck(this)"></td>
+                    </tr>
+                    <tr id="r">
+                        <td id="8">0</td>
+                        <td><input type="text" id="18" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="19" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="20" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="21" class="input-box" onfocus="getIdandCheck(this)"></td>
+                    </tr>
+                    <tr id="r">
+                        <td id="9">0</td>
+                        <td><input type="text" id="22" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="23" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="24" class="input-box" onfocus="getIdandCheck(this)"></td>
+                        <td><input type="text" id="25" class="input-box" onfocus="getIdandCheck(this)"></td>
+                    </tr>
+                </table>
+                <div class="row py-2 text-center">
+                    <div class="col py-2">
+                        <input class="w-100 prime-btn randbtn" type="button" id="randbtn" onclick="randomTableAdd(5)" value="click to randomize">
+                    </div>
+                    <div class="col py-2">
+                        <input class="w-100 prime-btn checkbtn" type="button" id="checkbtn" onclick="checkTable()" value="check table">
+                    </div>
+                    <div class="col py-2">
+                        <input class="w-100 prime-btn checkbtn" type="button" id="clrbtn" onclick="clrTable()" value="clear table">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section>
-        <div class="footer"></div>
+
+    </section>
+    <section>
+        <div class="container-fluid text-center py-4">
+            <div class="footer small">QuickMath is still underprogress. &#128295;&#9881;</div>
+        </div>
     </section>
 </body>
 <!-- js file -->
 <script src="logic.js"></script>
+<script src="style.js"></script>
 
 </html>
